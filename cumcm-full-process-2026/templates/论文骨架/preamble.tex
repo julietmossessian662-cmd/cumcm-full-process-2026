@@ -1,0 +1,87 @@
+% ============================================================
+%  导言区：样式与宏包（CUMCM 论文通用模板，实测可编译）
+%  依据：官方《全国大学生数学建模竞赛论文格式规范》
+%        —— 页边距上下左右 >=2.5cm；字体/字号/行距官方未强制
+% ============================================================
+
+% ---------- 页面 ----------
+\usepackage{geometry}
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+% ---------- 行距（为满足正文 <=30 页限制，由 1.5 调整为 1.38） ----------
+\linespread{1.38}
+
+% ---------- 页码：页脚居中（官方规范） ----------
+\pagestyle{plain}
+
+% ---------- 章节编号：中文数字 + 、（如 “一、问题重述”） ----------
+\ctexset{
+  section = {number = \chinese{section}, aftername = {、}},
+}
+
+% ---------- 字体：正文中文宋体（ctex 默认）；西文/数字/公式为 Times（MathType 观感） ----------
+\setmainfont{Times New Roman}
+
+% ---------- 数学 ----------
+\usepackage{amsmath, amsfonts, mathtools}
+\usepackage{unicode-math}
+\setmathfont{XITSMath-Regular.otf}   % XITS Math = Times 系 OpenType 数学字体
+
+% ---------- 定理环境 ----------
+\usepackage{amsthm}
+\newtheorem{lemma}{引理}
+\newtheorem{theorem}{定理}
+\newtheorem{proposition}{命题}
+\newtheorem{corollary}{推论}
+
+% ---------- 图表 ----------
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{font=small, labelsep=quad}
+
+% ---------- 列表 ----------
+\usepackage{enumitem}
+
+% ---------- 颜色与代码 ----------
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+}
+
+% ---------- 算法伪代码 ----------
+\usepackage[ruled, vlined, linesnumbered]{algorithm2e}
+\SetAlgorithmName{算法}{算法}{算法索引}
+
+% ---------- 单位 ----------
+\usepackage{siunitx}
+
+% ---------- 参考文献（GB/T 7714—2015 顺序编码制） ----------
+\usepackage{natbib}
+\usepackage{gbt7714}
+
+% ---------- 超链接（放在最后加载） ----------
+\usepackage[colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
+\usepackage{xurl}
+
+% ---------- 浮动体版面参数（减少整页空白） ----------
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.72}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}

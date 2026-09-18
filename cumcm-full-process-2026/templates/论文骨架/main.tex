@@ -1,0 +1,46 @@
+% !TEX program = xelatex
+% ============================================================
+%  CUMCM 论文 LaTeX 骨架（主文件模板）
+%  编译：latexmk -xelatex main.tex   （或双击 build.bat）
+%  规范要点：电子版首页 = 摘要页；不含承诺书/编号页；正文 <=30 页；不加目录
+%  用法：复制本目录（论文骨架）为你的论文工程 → 填 sections/ 各章
+%        → 摘要页最后写；编译用 build.bat 或 compile_check.sh
+% ============================================================
+\documentclass[12pt, a4paper]{ctexart}
+\input{preamble}
+
+\begin{document}
+
+% ---------- 摘要页（页码从 1 开始） ----------
+\input{frontmatter/abstract}
+
+% ---------- 正文（官方要求不加目录） ----------
+\input{sections/01-restatement}
+\input{sections/02-analysis}
+\input{sections/03-assumptions}
+\input{sections/04-notation}
+\input{sections/05-q1}
+\input{sections/06-q2}
+\input{sections/07-q3}
+\input{sections/08-q4}
+\input{sections/09-evaluation}
+
+% ---------- AI 工具使用声明（按当届规定：置于参考文献之前） ----------
+\section*{AI 工具使用声明}
+本参赛队在竞赛过程中使用了 AI 工具，主要用于辅助程序开发与调试、数据整理与思路探讨，详细使用情况见下。
+
+\begin{itemize}[leftmargin=2em, itemsep=2pt, topsep=3pt]
+  \item 工具A（名称/版本）：用途环节（示例：算法程序纠错与优化）；
+  \item 工具B（名称/版本）：用途环节（示例：文档整理与配图）。
+\end{itemize}
+
+% ---------- 参考文献（GB/T 7714—2015，顺序编码制） ----------
+\clearpage
+\bibliographystyle{gbt7714-2015-numeric}
+\bibliography{refs}
+
+% ---------- 附录（支撑材料目录 + 运行说明 + 核心程序清单） ----------
+\clearpage
+\input{appendix/appendix}
+
+\end{document}
